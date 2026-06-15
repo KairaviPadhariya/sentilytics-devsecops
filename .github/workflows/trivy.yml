@@ -12,8 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run Trivy Vulnerability Scanner
+      - name: Run Trivy FS Scan
         uses: aquasecurity/trivy-action@master
         with:
-          scan-type: fs
-          scan-ref: .
+          scan-type: 'fs'
+          scan-ref: '.'
