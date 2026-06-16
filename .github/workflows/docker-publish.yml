@@ -20,4 +20,4 @@ jobs:
       - uses: docker/build-push-action@v6
         with:
           push: true
-          tags: yourdockerhubusername/sentilytics:latest
+          tags: kairavipadhariya/sentilytics:latest
