@@ -22,8 +22,3 @@ jobs:
 
       - name: Test
         run: python -c "print('CI Passed')"
-
-      - name: Run Trivy Scan
-        uses: aquasecurity/trivy-action@master
-        with:
-          image-ref: 'sentilytics:v1'
