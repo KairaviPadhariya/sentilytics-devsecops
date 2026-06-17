@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sentilytics
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: sentilytics
+
+  template:
+    metadata:
+      labels:
+        app: sentilytics
+
+    spec:
+      containers:
+      - name: sentilytics
+        image: kairavipadhariya/sentilytics:latest
+
+        ports:
+        - containerPort: 8501
