@@ -1,196 +1,194 @@
 # 🚀 Sentilytics
-dvanced sentiment analysis app with dual ML models (TF-IDF + BERT) achieving 93% accuracy. Interactive Streamlit dashboard for analyzing customer reviews.
 
-# 🧠 Advanced Sentiment Analysis App
+Sentilytics is an advanced sentiment analysis application utilizing dual Machine Learning models (TF-IDF + Logistic Regression and BERT) to achieve up to 93% classification accuracy. The app provides a fully interactive Streamlit dashboard for uploading, analyzing, visualizing, and exporting customer reviews, complete with robust DevSecOps, containerization, and Kubernetes configuration.
 
-A comprehensive sentiment analysis tool that combines traditional machine learning with modern transformer models to analyze customer reviews and feedback.
+## 🔗 Live Demo
 
-## 🌟 What This App Does
+You can access the live dashboard here: **[sentilytics-devsecops.onrender.com](https://sentilytics-devsecops.onrender.com/)**
 
-Ever wondered what customers really think beyond just star ratings? This app digs deeper into review text to uncover the true sentiment, helping businesses understand their customers better.
+---
 
-**Key Features:**
-- Upload CSV files with customer reviews
-- Choose between TF-IDF + Logistic Regression or BERT models
-- Generate beautiful visualizations (word clouds, sentiment distribution)
-- Identify misleading high-rated reviews with negative sentiment
-- Track sentiment trends over time
-- Download analyzed results as CSV
+## 🌟 Key Features
 
-## 🚀 Live Demo
+- **Dual Sentiment Classification Engines**:
+  - **Traditional ML**: TF-IDF vectorization paired with a Logistic Regression classifier (93% accuracy, fast, and lightweight).
+  - **Deep Learning**: Fine-tuned multilingual BERT model (`nlptown/bert-base-multilingual-uncased-sentiment`) from Hugging Face Transformers for rich contextual understanding.
+- **Interactive Analytics Dashboard**:
+  - Direct file upload for custom review datasets in CSV format.
+  - Live preview and real-time inference on the uploaded reviews.
+  - Intuitive radio buttons to filter reviews dynamically by sentiment category (Positive, Neutral, Negative).
+- **Rich Visualizations**:
+  - Dynamic sentiment distribution bar charts.
+  - Word Clouds generated separately for Positive and Negative reviews using cleaned tokenized text.
+  - Temporal sentiment trend analysis (weekly, monthly, or daily granularity) mapping average star ratings and sentiment counts over time.
+- **Misleading Reviews Detection**: Automatically flags reviews that have high ratings (e.g., 5-stars) but exhibit negative/neutral predicted sentiments.
+- **Data Exporting**: Download annotated reviews containing predicted sentiments directly as a CSV.
+- **Production-Ready DevSecOps Pipeline**:
+  - Containerized deployment using Docker.
+  - Multi-replica deployment configuration via Kubernetes.
+  - Continuous Integration (CI) and automated image publishing via GitHub Actions.
+  - Automated security vulnerability scanning using Trivy.
 
-The app is built with Streamlit and provides an interactive web interface where you can:
-- Upload your own review data
-- Switch between different AI models
-- See real-time analysis results
-- Export processed data
+---
+
+## 📁 Repository Structure
+
+* [app.py](file:///Users/kairavipadhariya/Documents/Cloud/projects/sentilytics-original/app.py) - Streamlit dashboard web interface.
+* [Sentiment_Analysis.ipynb](file:///Users/kairavipadhariya/Documents/Cloud/projects/sentilytics-original/Sentiment_Analysis.ipynb) - Jupyter Notebook showcasing model exploration, cleaning, and training.
+* [requirement.txt](file:///Users/kairavipadhariya/Documents/Cloud/projects/sentilytics-original/requirement.txt) - List of Python package dependencies.
+* [Dockerfile](file:///Users/kairavipadhariya/Documents/Cloud/projects/sentilytics-original/Dockerfile) - Instruction set for packaging Sentilytics as a Docker container.
+* [docker-compose.yml](file:///Users/kairavipadhariya/Documents/Cloud/projects/sentilytics-original/docker-compose.yml) - Service orchestration config for local container development.
+* [k8s/](file:///Users/kairavipadhariya/Documents/Cloud/projects/sentilytics-original/k8s) - Directory containing Kubernetes manifests:
+  * [deployment.yaml](file:///Users/kairavipadhariya/Documents/Cloud/projects/sentilytics-original/k8s/deployment.yaml) - Defines a 2-replica Deployment of the app.
+  * [service.yaml](file:///Users/kairavipadhariya/Documents/Cloud/projects/sentilytics-original/k8s/service.yaml) - Exposes the app to network traffic using a NodePort Service.
+* [.github/workflows/](file:///Users/kairavipadhariya/Documents/Cloud/projects/sentilytics-original/.github/workflows) - Automated CI/CD pipelines:
+  * [ci.yml](file:///Users/kairavipadhariya/Documents/Cloud/projects/sentilytics-original/.github/workflows/ci.yml) - Runs dependency installation and basic validation tests.
+  * [docker-publish.yml](file:///Users/kairavipadhariya/Documents/Cloud/projects/sentilytics-original/.github/workflows/docker-publish.yml) - Builds the Docker image and pushes it to Docker Hub on merge to `main`.
+* [docs/security/trivy-report.txt](file:///Users/kairavipadhariya/Documents/Cloud/projects/sentilytics-original/docs/security/trivy-report.txt) - Security vulnerability assessment report generated via Trivy.
+* `sentiment_model.pkl` & `tfidf_vectorizer.pkl` - Serialized traditional machine learning model artifacts.
+
+---
 
 ## 🛠️ Tech Stack
 
-**Frontend:**
-- Streamlit for the web interface
-- Matplotlib & Seaborn for visualizations
-- WordCloud for text visualization
+- **Frontend**: Streamlit, Matplotlib, Seaborn, WordCloud
+- **NLP & Deep Learning**: PyTorch, Hugging Face Transformers, NLTK
+- **Machine Learning**: Scikit-Learn
+- **DevOps & Infrastructure**: Docker, Docker Compose, Kubernetes (K8s)
+- **CI/CD**: GitHub Actions
 
-**ML Models:**
-- **Traditional ML**: TF-IDF vectorization + Logistic Regression (93% accuracy)
-- **Deep Learning**: BERT (Multilingual) from HuggingFace Transformers
-- Natural Language Processing with NLTK
+---
 
-**Data Processing:**
-- Pandas for data manipulation
-- Regex for text cleaning
-- Scikit-learn for traditional ML pipeline
+## 🚀 Getting Started
 
-## 📊 Model Performance
+### Prerequisites
 
-Our TF-IDF + Logistic Regression model achieves **93% accuracy** on test data, making it reliable for real-world sentiment analysis tasks.
+Make sure you have Python 3.10+ installed.
 
-The BERT model provides more nuanced understanding of context and handles multilingual reviews better.
+### Option 1: Running Locally (Bare Metal)
 
-## 🏃‍♂️ Quick Start
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/sentilytics.git
+   cd sentilytics
+   ```
 
-### Installation
+2. **Install Python dependencies**:
+   ```bash
+   pip install --upgrade pip
+   pip install -r requirement.txt
+   ```
 
-```bash
-git clone https://github.com/yourusername/sentiment-analyzer-app
-cd sentiment-analyzer-app
-pip install -r requirements.txt
-```
+3. **Launch the Streamlit app**:
+   ```bash
+   streamlit run app.py
+   ```
+   Open your browser and navigate to `http://localhost:8501`.
 
-### Run the App
+---
 
-```bash
-streamlit run app.py
-```
+### Option 2: Running with Docker
 
-The app will open in your browser at `http://localhost:8501`
+1. **Build the Docker Image**:
+   ```bash
+   docker build -t sentilytics:latest .
+   ```
 
-### Using Your Own Data
+2. **Run the Container**:
+   ```bash
+   docker run -p 8501:8501 sentilytics:latest
+   ```
+   Open your browser and navigate to `http://localhost:8501`.
 
-Your CSV file should have a `reviewText` column. Optional columns:
-- `overall` - star ratings (1-5)
-- `reviewTime` - for time-based analysis
+3. **Or run using Docker Compose**:
+   ```bash
+   docker-compose up
+   ```
 
-Example CSV structure:
-```csv
-reviewText,overall,reviewTime
-"Great product, loved it!",5,2023-01-15
-"Not what I expected...",2,2023-01-20
-```
+---
 
-## 📁 Project Structure
+### Option 3: Deploying to Kubernetes
 
-```
-sentiment-analyzer-app/
-├── app.py                      # Main Streamlit application
-├── sentiment-analysis-pro-01.ipynb  # Model training notebook
-├── sentiment_model.pkl         # Trained TF-IDF model
-├── tfidf_vectorizer.pkl       # Fitted vectorizer
-├── requirements.txt           # Python dependencies
-└── README.md                  # You're reading it!
-```
+Deploy the application to your Kubernetes cluster (e.g. Minikube or cloud provider K8s) using the provided manifests:
 
-## 🔍 How It Works
+1. **Apply the Deployment**:
+   ```bash
+   kubectl apply -f k8s/deployment.yaml
+   ```
 
-### 1. Text Preprocessing
-- Converts text to lowercase
-- Removes HTML tags and special characters
-- Eliminates stopwords
-- Tokenizes and cleans the text
+2. **Apply the Service**:
+   ```bash
+   kubectl apply -f k8s/service.yaml
+   ```
 
-### 2. Sentiment Classification
-```python
-def map_sentiment(score):
-    if score <= 2.5:
-        return 'negative'
-    elif score <= 3.5:
-        return 'neutral' 
-    else:
-        return 'positive'
-```
+3. **Access the Application**:
+   Find the NodePort URL using:
+   ```bash
+   minikube service sentilytics-service --url
+   ```
+   Or query the service:
+   ```bash
+   kubectl get svc sentilytics-service
+   ```
 
-### 3. Model Options
-- **TF-IDF + LogisticRegression**: Fast, reliable, works offline
-- **BERT**: More accurate, understands context better
+---
 
-### 4. Visualizations
-- Sentiment distribution bar charts
-- Word clouds for positive/negative reviews
-- Time-based trend analysis
-- Misleading review detection
+## 🧪 Model Details
 
-## 💡 Key Insights This App Reveals
+### 1. TF-IDF + Logistic Regression
+* **Pros**: Extremely fast, offline inference, low memory usage.
+* **Accuracy**: 93% on test dataset.
+* **Best For**: Rapid analysis of huge datasets.
 
-**Hidden Problems:** Sometimes 5-star rated products have hidden negative sentiments that traditional ratings miss.
+### 2. BERT (Base Multilingual Uncased)
+* **Pros**: Captures nuanced semantics, supports multiple languages, higher contextual sensitivity.
+* **Cons**: Compute-intensive, slow on CPU.
+* **Best For**: Deep context-dependent review classification.
 
-**Trend Analysis:** See how customer sentiment changes over time, even when star ratings stay stable.
+---
 
-**Word Patterns:** Discover what specific words customers use when they're happy vs unhappy.
+## ⚙️ CI/CD & Security (DevSecOps)
 
-## 🎯 Use Cases
+- **Continuous Integration ([ci.yml](file:///Users/kairavipadhariya/Documents/Cloud/projects/sentilytics-original/.github/workflows/ci.yml))**: Checks out code, sets up Python 3.10, installs dependencies, and runs basic verification tests.
+- **Docker Publishing ([docker-publish.yml](file:///Users/kairavipadhariya/Documents/Cloud/projects/sentilytics-original/.github/workflows/docker-publish.yml))**: Automatically publishes new builds to Docker Hub (`kairavipadhariya/sentilytics:latest`) when changes are pushed to `main`.
+- **Security Scans**: Vulnerabilities are scanned using Trivy. The output report is logged in [trivy-report.txt](file:///Users/kairavipadhariya/Documents/Cloud/projects/sentilytics-original/docs/security/trivy-report.txt).
 
-- **E-commerce**: Analyze product reviews to improve customer satisfaction
-- **Social Media**: Monitor brand sentiment across platforms  
-- **Market Research**: Understand customer opinions at scale
-- **Product Development**: Identify pain points from user feedback
+---
 
-## 🧪 Training Process
+## 📈 CSV Data Format
 
-The model was trained on Amazon review data with:
-- Text cleaning and preprocessing
-- TF-IDF vectorization (5000 features)
-- 3-class classification (positive/neutral/negative)
-- Train-test split (80/20)
-- Achieved 93% accuracy on test set
+To analyze custom data, upload a CSV containing:
+- `reviewText` (Required): Textual content of the review.
+- `overall` (Optional): Star rating from 1 to 5 (used to map true sentiment and detect misleading ratings).
+- `reviewTime` (Optional): Datetime field (used to display historical sentiment trends).
 
-## 🤖 Models Explained
+### Example:
+| reviewText | overall | reviewTime |
+| :--- | :---: | :--- |
+| "Absolutely love the product, worth every penny!" | 5 | 2026-06-18 |
+| "The customer service was awful and it broke on day one." | 1 | 2026-06-15 |
 
-### TF-IDF + Logistic Regression
-- **Pros**: Fast, interpretable, works offline
-- **Cons**: Doesn't understand context as well
-- **Best for**: Large-scale batch processing
+---
 
-### BERT (Transformers)
-- **Pros**: Understands context, very accurate, multilingual
-- **Cons**: Slower, requires more resources
-- **Best for**: High-accuracy requirements
+## 🖼️ Application Screenshots
 
-## 🔮 Future Improvements
+Here are some visual insights and results generated by the Sentilytics application:
 
-- Add aspect-based sentiment analysis (price, quality, service)
-- Support for more languages
-- Real-time social media sentiment tracking
-- API endpoint for integration with other apps
-- Mobile-responsive design
+<img width="2457" height="1075" alt="Dashboard Overview" src="https://github.com/user-attachments/assets/36bc37a7-965c-4a5e-b734-71443e2d9a19" />
+<img width="1106" height="892" alt="Sentiment Distribution Plot" src="https://github.com/user-attachments/assets/5516b4e4-d805-4eec-905e-7fad6fa7a85b" />
+<img width="1054" height="1192" alt="Positive Review WordCloud" src="https://github.com/user-attachments/assets/3b11584b-71e6-493d-a741-47704b13c664" />
+<img width="1094" height="1245" alt="Negative Review WordCloud" src="https://github.com/user-attachments/assets/80d423ea-a049-4637-b762-ca8b9a68799a" />
+<img width="1104" height="1237" alt="Misleading Reviews Flagging" src="https://github.com/user-attachments/assets/17de3041-4eaf-46f1-9356-6d4c334f96fb" />
 
-## 📈 Sample Results
-
-The app successfully identifies cases where:
-- 5-star reviews contain negative sentiment about specific aspects
-- Overall sentiment trends differ from rating trends
-- Specific pain points emerge from customer feedback
+---
 
 ## 🤝 Contributing
 
-Feel free to fork this project and submit pull requests! Some areas for improvement:
-- Adding more visualization types
-- Implementing new ML models
-- Improving the UI/UX
-- Adding export options
+Contributions, bug reports, and pull requests are welcome! Feel free to raise issues for aspect-based sentiment features or UI optimizations.
 
 ## 📄 License
 
-MIT License - Feel free to use this for your own projects!
-##Images 
-<img width="2457" height="1075" alt="image" src="https://github.com/user-attachments/assets/36bc37a7-965c-4a5e-b734-71443e2d9a19" />
-<img width="1106" height="892" alt="image" src="https://github.com/user-attachments/assets/5516b4e4-d805-4eec-905e-7fad6fa7a85b" />
-<img width="1054" height="1192" alt="image" src="https://github.com/user-attachments/assets/3b11584b-71e6-493d-a741-47704b13c664" />
-<img width="1094" height="1245" alt="image" src="https://github.com/user-attachments/assets/80d423ea-a049-4637-b762-ca8b9a68799a" />
-<img width="1104" height="1237" alt="image" src="https://github.com/user-attachments/assets/17de3041-4eaf-46f1-9356-6d4c334f96fb" />
-
-
-
+This project is licensed under the MIT License. See [LICENSE](file:///Users/kairavipadhariya/Documents/Cloud/projects/sentilytics-original/LICENSE) for more details.
 
 ---
 
