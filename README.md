@@ -1,195 +1,405 @@
-# 🚀 Sentilytics
+# 🚀 Sentilytics – DevSecOps Enabled Sentiment Analysis
 
-Sentilytics is an advanced sentiment analysis application utilizing dual Machine Learning models (TF-IDF + Logistic Regression and BERT) to achieve up to 93% classification accuracy. The app provides a fully interactive Streamlit dashboard for uploading, analyzing, visualizing, and exporting customer reviews, complete with robust DevSecOps, containerization, and Kubernetes configuration.
+![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python)
+![Streamlit](https://img.shields.io/badge/Frontend-Streamlit-red?logo=streamlit)
+![Docker](https://img.shields.io/badge/Container-Docker-2496ED?logo=docker)
+![GitHub Actions](https://img.shields.io/badge/CI/CD-GitHub%20Actions-2088FF?logo=githubactions)
+![Trivy](https://img.shields.io/badge/Security-Trivy-1904DA)
+![Render](https://img.shields.io/badge/Deployment-Render-46E3B7)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-## 🔗 Live Demo
-
-You can access the live dashboard here: **[sentilytics-devsecops.onrender.com](https://sentilytics-devsecops.onrender.com/)**
-
----
-
-## 🌟 Key Features
-
-- **Dual Sentiment Classification Engines**:
-  - **Traditional ML**: TF-IDF vectorization paired with a Logistic Regression classifier (93% accuracy, fast, and lightweight).
-  - **Deep Learning**: Fine-tuned multilingual BERT model (`nlptown/bert-base-multilingual-uncased-sentiment`) from Hugging Face Transformers for rich contextual understanding.
-- **Interactive Analytics Dashboard**:
-  - Direct file upload for custom review datasets in CSV format.
-  - Live preview and real-time inference on the uploaded reviews.
-  - Intuitive radio buttons to filter reviews dynamically by sentiment category (Positive, Neutral, Negative).
-- **Rich Visualizations**:
-  - Dynamic sentiment distribution bar charts.
-  - Word Clouds generated separately for Positive and Negative reviews using cleaned tokenized text.
-  - Temporal sentiment trend analysis (weekly, monthly, or daily granularity) mapping average star ratings and sentiment counts over time.
-- **Misleading Reviews Detection**: Automatically flags reviews that have high ratings (e.g., 5-stars) but exhibit negative/neutral predicted sentiments.
-- **Data Exporting**: Download annotated reviews containing predicted sentiments directly as a CSV.
-- **Production-Ready DevSecOps Pipeline**:
-  - Containerized deployment using Docker.
-  - Multi-replica deployment configuration via Kubernetes.
-  - Continuous Integration (CI) and automated image publishing via GitHub Actions.
-  - Automated security vulnerability scanning using Trivy.
+Sentilytics is a sentiment analysis application that combines Machine Learning with modern DevSecOps practices. The application provides an interactive Streamlit dashboard for analyzing customer reviews while demonstrating an end-to-end software delivery pipeline using Docker, GitHub Actions, Trivy, Docker Hub, and Render.
 
 ---
 
-## 📁 Repository Structure
+# 🔗 Live Demo
 
-* [app.py](file:///Users/kairavipadhariya/Documents/Cloud/projects/sentilytics-original/app.py) - Streamlit dashboard web interface.
-* [Sentiment_Analysis.ipynb](file:///Users/kairavipadhariya/Documents/Cloud/projects/sentilytics-original/Sentiment_Analysis.ipynb) - Jupyter Notebook showcasing model exploration, cleaning, and training.
-* [requirement.txt](file:///Users/kairavipadhariya/Documents/Cloud/projects/sentilytics-original/requirement.txt) - List of Python package dependencies.
-* [Dockerfile](file:///Users/kairavipadhariya/Documents/Cloud/projects/sentilytics-original/Dockerfile) - Instruction set for packaging Sentilytics as a Docker container.
-* [docker-compose.yml](file:///Users/kairavipadhariya/Documents/Cloud/projects/sentilytics-original/docker-compose.yml) - Service orchestration config for local container development.
-* [k8s/](file:///Users/kairavipadhariya/Documents/Cloud/projects/sentilytics-original/k8s) - Directory containing Kubernetes manifests:
-  * [deployment.yaml](file:///Users/kairavipadhariya/Documents/Cloud/projects/sentilytics-original/k8s/deployment.yaml) - Defines a 2-replica Deployment of the app.
-  * [service.yaml](file:///Users/kairavipadhariya/Documents/Cloud/projects/sentilytics-original/k8s/service.yaml) - Exposes the app to network traffic using a NodePort Service.
-* [.github/workflows/](file:///Users/kairavipadhariya/Documents/Cloud/projects/sentilytics-original/.github/workflows) - Automated CI/CD pipelines:
-  * [ci.yml](file:///Users/kairavipadhariya/Documents/Cloud/projects/sentilytics-original/.github/workflows/ci.yml) - Runs dependency installation and basic validation tests.
-  * [docker-publish.yml](file:///Users/kairavipadhariya/Documents/Cloud/projects/sentilytics-original/.github/workflows/docker-publish.yml) - Builds the Docker image and pushes it to Docker Hub on merge to `main`.
-* [docs/security/trivy-report.txt](file:///Users/kairavipadhariya/Documents/Cloud/projects/sentilytics-original/docs/security/trivy-report.txt) - Security vulnerability assessment report generated via Trivy.
-* `sentiment_model.pkl` & `tfidf_vectorizer.pkl` - Serialized traditional machine learning model artifacts.
+🌐 **Application:** https://sentilytics-devsecops.onrender.com/
+
+📦 **Docker Hub:** https://hub.docker.com/r/kairavipadhariya/sentilytics
+
+📂 **GitHub Repository:** https://github.com/KairaviPadhariya/sentilytics-devsecops
 
 ---
 
-## 🛠️ Tech Stack
+# ⭐ Project Highlights
 
-- **Frontend**: Streamlit, Matplotlib, Seaborn, WordCloud
-- **NLP & Deep Learning**: PyTorch, Hugging Face Transformers, NLTK
-- **Machine Learning**: Scikit-Learn
-- **DevOps & Infrastructure**: Docker, Docker Compose, Kubernetes (K8s)
-- **CI/CD**: GitHub Actions
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-Make sure you have Python 3.10+ installed.
-
-### Option 1: Running Locally (Bare Metal)
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/your-username/sentilytics.git
-   cd sentilytics
-   ```
-
-2. **Install Python dependencies**:
-   ```bash
-   pip install --upgrade pip
-   pip install -r requirement.txt
-   ```
-
-3. **Launch the Streamlit app**:
-   ```bash
-   streamlit run app.py
-   ```
-   Open your browser and navigate to `http://localhost:8501`.
+- 🤖 Machine Learning based Sentiment Analysis
+- 📊 Interactive Streamlit Dashboard
+- 📈 Data Visualization & Word Clouds
+- 🐳 Docker Containerization
+- 🔄 Automated CI Pipeline using GitHub Actions
+- 🔐 Security Scanning using Trivy
+- 📦 Automatic Docker Image Publishing
+- ☁️ Cloud Deployment on Render
 
 ---
 
-### Option 2: Running with Docker
+# 🏗️ Project Architecture
 
-1. **Build the Docker Image**:
-   ```bash
-   docker build -t sentilytics:latest .
-   ```
+```
+                  User
+                    │
+                    ▼
+           Streamlit Dashboard
+                    │
+                    ▼
+         Sentiment Prediction Engine
+                    │
+        TF-IDF + Logistic Regression
+                    │
+                    ▼
+            Prediction Results
 
-2. **Run the Container**:
-   ```bash
-   docker run -p 8501:8501 sentilytics:latest
-   ```
-   Open your browser and navigate to `http://localhost:8501`.
 
-3. **Or run using Docker Compose**:
-   ```bash
-   docker-compose up
-   ```
-
----
-
-### Option 3: Deploying to Kubernetes
-
-Deploy the application to your Kubernetes cluster (e.g. Minikube or cloud provider K8s) using the provided manifests:
-
-1. **Apply the Deployment**:
-   ```bash
-   kubectl apply -f k8s/deployment.yaml
-   ```
-
-2. **Apply the Service**:
-   ```bash
-   kubectl apply -f k8s/service.yaml
-   ```
-
-3. **Access the Application**:
-   Find the NodePort URL using:
-   ```bash
-   minikube service sentilytics-service --url
-   ```
-   Or query the service:
-   ```bash
-   kubectl get svc sentilytics-service
-   ```
+Developer
+    │
+    ▼
+GitHub Repository
+    │
+    ▼
+GitHub Actions
+    │
+    ├── Install Dependencies
+    ├── Build Docker Image
+    ├── Run Trivy Security Scan
+    └── Push Docker Image
+            │
+            ▼
+        Docker Hub
+            │
+            ▼
+         Render Cloud
+            │
+            ▼
+      Live Application
+```
 
 ---
 
-## 🧪 Model Details
+# 👨‍💻 My Contributions
 
-### 1. TF-IDF + Logistic Regression
-* **Pros**: Extremely fast, offline inference, low memory usage.
-* **Accuracy**: 93% on test dataset.
-* **Best For**: Rapid analysis of huge datasets.
+The original sentiment analysis application has been enhanced by me with a complete DevSecOps workflow.
 
-### 2. BERT (Base Multilingual Uncased)
-* **Pros**: Captures nuanced semantics, supports multiple languages, higher contextual sensitivity.
-* **Cons**: Compute-intensive, slow on CPU.
-* **Best For**: Deep context-dependent review classification.
+Enhancements include:
 
----
+- Docker Containerization
+- Docker Compose Support
+- GitHub Actions CI Pipeline
+- Trivy Security Scanning
+- Automated Docker Hub Publishing
+- Cloud Deployment on Render
+- Improved Project Documentation
+- Deployment Architecture
 
-## ⚙️ CI/CD & Security (DevSecOps)
-
-- **Continuous Integration ([ci.yml](file:///Users/kairavipadhariya/Documents/Cloud/projects/sentilytics-original/.github/workflows/ci.yml))**: Checks out code, sets up Python 3.10, installs dependencies, and runs basic verification tests.
-- **Docker Publishing ([docker-publish.yml](file:///Users/kairavipadhariya/Documents/Cloud/projects/sentilytics-original/.github/workflows/docker-publish.yml))**: Automatically publishes new builds to Docker Hub (`kairavipadhariya/sentilytics:latest`) when changes are pushed to `main`.
-- **Security Scans**: Vulnerabilities are scanned using Trivy. The output report is logged in [trivy-report.txt](file:///Users/kairavipadhariya/Documents/Cloud/projects/sentilytics-original/docs/security/trivy-report.txt).
+Note: This repository builds upon an existing sentiment analysis application. My primary contributions include Docker containerization, GitHub Actions CI/CD, Trivy security scanning, Docker Hub automation, Render deployment, and comprehensive project documentation.
 
 ---
 
-## 📈 CSV Data Format
+# 🌟 Features
 
-To analyze custom data, upload a CSV containing:
-- `reviewText` (Required): Textual content of the review.
-- `overall` (Optional): Star rating from 1 to 5 (used to map true sentiment and detect misleading ratings).
-- `reviewTime` (Optional): Datetime field (used to display historical sentiment trends).
+## 🤖 Machine Learning
 
-### Example:
+- TF-IDF Vectorization
+- Logistic Regression Classifier
+- Up to **93% classification accuracy**
+
+---
+
+## 📊 Interactive Dashboard
+
+- Upload CSV reviews
+- Live sentiment prediction
+- Filter Positive/Neutral/Negative reviews
+- Export predictions
+
+---
+
+## 📈 Visual Analytics
+
+- Sentiment Distribution Chart
+- Positive Word Cloud
+- Negative Word Cloud
+- Sentiment Trend Analysis
+- Misleading Review Detection
+
+---
+
+## 🔐 DevSecOps
+
+- Dockerized Application
+- GitHub Actions CI Pipeline
+- Trivy Vulnerability Scanning
+- Docker Hub Image Publishing
+- Cloud Deployment on Render
+
+---
+
+# 📂 Repository Structure
+
+```
+Sentilytics
+│
+├── app.py
+├── Sentiment_Analysis.ipynb
+├── requirement.txt
+├── Dockerfile
+├── docker-compose.yml
+│
+├── .github/
+│   └── workflows/
+│       ├── ci.yml
+│       ├── docker-publish.yml
+│       └── trivy.yml
+│
+├── docs/
+│   └── security/
+│       └── trivy-report.txt
+│
+├── sentiment_model.pkl
+├── tfidf_vectorizer.pkl
+│
+└── README.md
+```
+
+---
+
+# 🛠 Tech Stack
+
+| Category | Technologies |
+|----------|--------------|
+| Programming | Python |
+| Frontend | Streamlit |
+| Machine Learning | Scikit-Learn |
+| NLP | NLTK |
+| Deep Learning | Hugging Face Transformers, PyTorch |
+| Visualization | Matplotlib, Seaborn, WordCloud |
+| Containerization | Docker, Docker Compose |
+| CI/CD | GitHub Actions |
+| Security | Trivy |
+| Deployment | Render |
+| Version Control | Git & GitHub |
+
+---
+
+# 🚀 Running Locally
+
+## Clone Repository
+
+```bash
+git clone https://github.com/KairaviPadhariya/sentilytics-devsecops.git
+
+cd sentilytics-devsecops
+```
+
+---
+
+## Install Dependencies
+
+```bash
+pip install -r requirement.txt
+```
+
+---
+
+## Run Application
+
+```bash
+streamlit run app.py
+```
+
+Visit:
+
+```
+http://localhost:8501
+```
+
+---
+
+# 🐳 Run with Docker
+
+Build Image
+
+```bash
+docker build -t sentilytics:latest .
+```
+
+Run Container
+
+```bash
+docker run -p 8501:8501 sentilytics:latest
+```
+
+Visit:
+
+```
+http://localhost:8501
+```
+
+---
+
+## Using Docker Compose
+
+```bash
+docker compose up
+```
+
+---
+
+# ⚙️ CI/CD Pipeline
+
+Every push to the **main** branch automatically:
+
+- Checks out the source code
+- Installs project dependencies
+- Validates the project
+- Performs security scanning using Trivy
+- Builds Docker image
+- Pushes Docker image to Docker Hub
+
+---
+
+# 🔐 Security
+
+Security scanning is performed using **Trivy**.
+
+The scan checks for:
+
+- Vulnerable dependencies
+- Misconfigurations
+- Secrets
+- Known CVEs
+
+Generated reports are stored in:
+
+```
+docs/security/trivy-report.txt
+```
+
+---
+
+# 📊 Model Information
+
+## TF-IDF + Logistic Regression
+
+Advantages:
+
+- Fast inference
+- Lightweight
+- Low memory usage
+- Suitable for production
+
+Accuracy:
+
+**93%**
+
+---
+
+## BERT
+
+Model:
+
+```
+nlptown/bert-base-multilingual-uncased-sentiment
+```
+
+Advantages:
+
+- Context-aware prediction
+- Multilingual support
+- Better semantic understanding
+
+Trade-offs:
+
+- Slower than Logistic Regression
+- Higher memory usage
+
+---
+
+# 📁 Dataset Format
+
+The uploaded CSV should contain:
+
+| Column | Required |
+|----------|----------|
+| reviewText | ✅ |
+| overall | Optional |
+| reviewTime | Optional |
+
+Example
+
 | reviewText | overall | reviewTime |
-| :--- | :---: | :--- |
-| "Absolutely love the product, worth every penny!" | 5 | 2026-06-18 |
-| "The customer service was awful and it broke on day one." | 1 | 2026-06-15 |
+|------------|----------|------------|
+| Great Product | 5 | 2026-06-18 |
+| Bad Quality | 1 | 2026-06-15 |
 
 ---
 
-## 🖼️ Application Screenshots
+# 📷 Application Screenshots
 
-Here are some visual insights and results generated by the Sentilytics application:
+## Dashboard
 
-<img width="2457" height="1075" alt="Dashboard Overview" src="https://github.com/user-attachments/assets/36bc37a7-965c-4a5e-b734-71443e2d9a19" />
-<img width="1106" height="892" alt="Sentiment Distribution Plot" src="https://github.com/user-attachments/assets/5516b4e4-d805-4eec-905e-7fad6fa7a85b" />
-<img width="1054" height="1192" alt="Positive Review WordCloud" src="https://github.com/user-attachments/assets/3b11584b-71e6-493d-a741-47704b13c664" />
-<img width="1094" height="1245" alt="Negative Review WordCloud" src="https://github.com/user-attachments/assets/80d423ea-a049-4637-b762-ca8b9a68799a" />
-<img width="1104" height="1237" alt="Misleading Reviews Flagging" src="https://github.com/user-attachments/assets/17de3041-4eaf-46f1-9356-6d4c334f96fb" />
+(Add Screenshot)
+
+## Sentiment Distribution
+
+(Add Screenshot)
+
+## Positive Word Cloud
+
+(Add Screenshot)
+
+## Negative Word Cloud
+
+(Add Screenshot)
+
+## Misleading Review Detection
+
+(Add Screenshot)
 
 ---
 
-## 🤝 Contributing
+# 📚 What I Learned
 
-Contributions, bug reports, and pull requests are welcome! Feel free to raise issues for aspect-based sentiment features or UI optimizations.
+This project helped me gain practical experience in:
 
-## 📄 License
-
-This project is licensed under the MIT License. See [LICENSE](file:///Users/kairavipadhariya/Documents/Cloud/projects/sentilytics-original/LICENSE) for more details.
+- Machine Learning Deployment
+- Docker Containerization
+- GitHub Actions
+- Continuous Integration
+- DevSecOps Fundamentals
+- Container Security
+- Docker Hub Automation
+- Cloud Deployment
+- Software Documentation
 
 ---
 
-*Built with Python, Streamlit, and a lot of coffee ☕*
+# 🚀 Future Improvements
+
+- Unit Testing using Pytest
+- Code Quality Checks using Black & Flake8
+- Improved ML Model Performance
+- Authentication for Dashboard
+- Monitoring & Logging
+- Kubernetes Deployment (planned as a future learning milestone)
+
+---
+
+# 🤝 Contributing
+
+Contributions, suggestions, and pull requests are welcome.
+
+Feel free to open an issue for bug reports or feature requests.
+
+---
+
+# 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+## ⭐ If you found this project useful, consider giving it a Star!
+
+Built with ❤️ using Python, Streamlit, Docker, GitHub Actions, Trivy, and Render.
