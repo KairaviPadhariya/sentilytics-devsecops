@@ -18,8 +18,6 @@ Sentilytics is a sentiment analysis application that combines Machine Learning w
 
 📦 **Docker Hub:** https://hub.docker.com/r/kairavipadhariya/sentilytics
 
-📂 **GitHub Repository:** https://github.com/KairaviPadhariya/sentilytics-devsecops
-
 ---
 
 # ⭐ Project Highlights
