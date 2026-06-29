@@ -40,40 +40,46 @@ st.markdown("""
         margin: 0;
         letter-spacing: -0.5px;
         font-family: 'Outfit', 'Inter', sans-serif;
+        color: white;
     }
     .title-sub {
         font-size: 1.1rem;
         opacity: 0.85;
         margin-top: 5px;
         font-weight: 400;
+        color: white;
     }
     
     /* Metrics panel styling */
     div[data-testid="stMetric"] {
-        background-color: #ffffff;
-        border: 1px solid #eef2f6;
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         padding: 20px;
         border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     div[data-testid="stMetric"]:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.12);
     }
     
-    /* Info Card style */
+    /* Info Card style — theme-aware */
     .info-card {
         padding: 25px;
-        background-color: #ffffff;
+        background-color: rgba(255, 255, 255, 0.05);
         border-radius: 12px;
-        border-left: 5px solid #2a5298;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        border-left: 5px solid #5b8dee;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         margin-bottom: 1.5rem;
+        color: inherit;
     }
-    .info-card h3 {
+    .info-card h3, .info-card h4 {
         margin-top: 0;
-        color: #1e3c72;
+        color: #7eb4ff;
+    }
+    .info-card p, .info-card li {
+        color: inherit;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -362,5 +368,3 @@ else:
         </ul>
     </div>
     """, unsafe_allow_html=True)
-    
-    st.image("https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80", caption="Interactive Data Analytics", use_column_width=True)
