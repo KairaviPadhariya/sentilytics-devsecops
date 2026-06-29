@@ -337,23 +337,23 @@ Example
 
 ## Dashboard
 
-(Add Screenshot)
+<img width="1440" height="491" alt="Screenshot 2026-06-29 at 12 22 07 PM" src="https://github.com/user-attachments/assets/2eccddf4-ccdc-4bbd-9677-f8eea83d5576" />
 
 ## Sentiment Distribution
 
-(Add Screenshot)
+<img width="1020" height="757" alt="Screenshot 2026-06-29 at 4 00 15 PM" src="https://github.com/user-attachments/assets/8eb14a59-bbad-45dd-adde-c2417efb0862" />
 
 ## Positive Word Cloud
 
-(Add Screenshot)
+<img width="958" height="652" alt="Screenshot 2026-06-29 at 4 00 36 PM" src="https://github.com/user-attachments/assets/2b7af46e-eb73-4626-aaa6-4c9da51e2f9b" />
 
 ## Negative Word Cloud
 
-(Add Screenshot)
+<img width="935" height="628" alt="Screenshot 2026-06-29 at 4 02 22 PM" src="https://github.com/user-attachments/assets/3e975d52-da4c-45aa-b2e1-eaa5aeb44fe3" />
 
-## Misleading Review Detection
+## Filter Reviews by Sentiment
 
-(Add Screenshot)
+<img width="657" height="267" alt="Screenshot 2026-06-29 at 4 03 37 PM" src="https://github.com/user-attachments/assets/e0887964-09fc-401e-ae08-f0f3a3048f95" />
 
 ---
 
