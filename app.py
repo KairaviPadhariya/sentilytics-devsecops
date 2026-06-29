@@ -1,4 +1,5 @@
 # Import necessary libraries
+import os
 import streamlit as st
 import pandas as pd
 import pickle
@@ -23,6 +24,11 @@ st.title("🧠 Sentiment Analyzer App")
 
 # File uploader widget for CSV input
 uploaded_file = st.file_uploader("Upload your CSV file with reviews", type=["csv"])
+
+# Debug Information
+st.write("Current Working Directory:", os.getcwd())
+st.write("Files in Current Directory:")
+st.write(os.listdir())
 
 # Function to clean and preprocess review text
 def clean_text(text):
@@ -89,8 +95,14 @@ if uploaded_file is not None:
 
         # Use traditional ML model
         if model_choice == "TF-IDF + LogisticRegression":
-            model = pickle.load(open("sentiment_model.pkl", 'rb'))
-            vectorizer = pickle.load(open("tfidf_vectorizer.pkl", 'rb'))
+            MODEL_PATH = os.path.join(os.getcwd(), "sentiment_model.pkl")
+            VECTORIZER_PATH = os.path.join(os.getcwd(), "tfidf_vectorizer.pkl")
+
+            st.write("Model Exists:", os.path.exists(MODEL_PATH))
+            st.write("Vectorizer Exists:", os.path.exists(VECTORIZER_PATH))
+
+            model = pickle.load(open(MODEL_PATH, "rb"))
+            vectorizer = pickle.load(open(VECTORIZER_PATH, "rb"))   
             X = vectorizer.transform(df['cleaned'])
             df['sentiment'] = model.predict(X)
 
