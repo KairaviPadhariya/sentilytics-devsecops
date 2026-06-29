@@ -87,8 +87,9 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Sidebar layout
-st.sidebar.image("https://img.shields.io/badge/Sentilytics-DevSecOps-blue?style=for-the-badge&logo=github", use_container_width=False)
-st.sidebar.title("Configuration")
+st.sidebar.markdown("### 🧠 Sentilytics")
+st.sidebar.caption("DevSecOps · Sentiment Analysis")
+st.sidebar.markdown("---")
 
 st.sidebar.subheader("📂 Data Source")
 uploaded_file = st.sidebar.file_uploader("Upload your CSV file with reviews", type=["csv"])
@@ -209,8 +210,7 @@ if uploaded_file is not None or use_sample:
             label="Download Annotated CSV",
             data=df.to_csv(index=False),
             file_name="annotated_reviews.csv",
-            mime="text/csv",
-            use_container_width=True
+            mime="text/csv"
         )
 
         # High-level metrics calculations
@@ -283,7 +283,7 @@ if uploaded_file is not None or use_sample:
                 st.markdown("##### Positive Review Keywords")
                 if pos_text.strip():
                     wordcloud_pos = WordCloud(width=600, height=400, background_color='white', colormap='Greens').generate(pos_text)
-                    st.image(wordcloud_pos.to_array(), use_container_width=True)
+                    st.image(wordcloud_pos.to_array(), use_column_width=True)
                 else:
                     st.warning("Not enough positive reviews to generate a word cloud.")
                     
@@ -291,7 +291,7 @@ if uploaded_file is not None or use_sample:
                 st.markdown("##### Negative Review Keywords")
                 if neg_text.strip():
                     wordcloud_neg = WordCloud(width=600, height=400, background_color='black', colormap='Reds').generate(neg_text)
-                    st.image(wordcloud_neg.to_array(), use_container_width=True)
+                    st.image(wordcloud_neg.to_array(), use_column_width=True)
                 else:
                     st.warning("Not enough negative reviews to generate a word cloud.")
 
@@ -363,4 +363,4 @@ else:
     </div>
     """, unsafe_allow_html=True)
     
-    st.image("https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80", caption="Interactive Data Analytics", use_container_width=True)
+    st.image("https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80", caption="Interactive Data Analytics", use_column_width=True)
