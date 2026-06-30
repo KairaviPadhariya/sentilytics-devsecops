@@ -337,11 +337,11 @@ Example
 
 ## Dashboard
 
-<img width="1440" height="491" alt="Screenshot 2026-06-29 at 12 22 07 PM" src="https://github.com/user-attachments/assets/2eccddf4-ccdc-4bbd-9677-f8eea83d5576" />
+<img width="1440" height="712" alt="Screenshot 2026-06-30 at 2 32 06 PM" src="https://github.com/user-attachments/assets/ec22413c-9d7d-4399-8b72-b894f17aa4c9" />
 
 ## Sentiment Distribution
 
-<img width="1020" height="757" alt="Screenshot 2026-06-29 at 4 00 15 PM" src="https://github.com/user-attachments/assets/8eb14a59-bbad-45dd-adde-c2417efb0862" />
+<img width="944" height="749" alt="Screenshot 2026-06-30 at 2 32 53 PM" src="https://github.com/user-attachments/assets/a778a15c-55ef-4eb7-85b8-cb1722c21eba" />
 
 ## Positive Word Cloud
 
